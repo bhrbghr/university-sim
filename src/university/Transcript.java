@@ -1,5 +1,6 @@
 package university;
 import java.util.HashMap;
+
 public class Transcript {
 
         public int studentID;
@@ -15,10 +16,14 @@ public class Transcript {
 
         public void printTranscript() {
             System.out.println("Transcript for Student ID: " + studentID);
+
             for (Integer courseID : transcript.keySet()) {
                 double grade = transcript.get(courseID);
                 PresentedCourse course = PresentedCourse.findByID(courseID);
+                System.out.println();
+                System.out.println(course.courseID);
                 Course courseDetails = Course.findByID(course.courseID);
+
                 if (course != null && courseDetails != null) {
                     System.out.println("Course: " + courseDetails.title + " (Units: " + courseDetails.units + ") - Grade: " + grade);
                 }

@@ -1,4 +1,6 @@
 package university;
+import base.Person;
+
 import java.util.ArrayList;
 public class Professor {
 
@@ -6,10 +8,12 @@ public class Professor {
         public static ArrayList<Professor> professorList = new ArrayList<>();
         public int personID;
         public int majorID;
+        private static int idCounter = 1;
 
 
         public Professor(int personID, int majorID) {
             this.id = professorList.size() + 1;
+            this.personID = personID;
             this.majorID = majorID;
             professorList.add(this);
         }
@@ -21,6 +25,10 @@ public class Professor {
                 }
             }
             return null;
+        }
+        public String toString(){
+            return "Professor {ID =" + id +
+                    ", Major ID =" + majorID + "}";
         }
     }
 

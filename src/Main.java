@@ -7,11 +7,11 @@ public class Main {
     public static void main(String[] args) {
 
 
-        Person alex = new Person("Alex", "1051");
-        Person john = new Person("John", "1052");
-        Person lisa = new Person("Lisa", "1053");
-        Person kiran = new Person("Kiran", "1054");
-        Person elena = new Person("Elena", "1055");
+        Person alex = new Person("1051", "Alex");
+        Person john = new Person("1052", "John");
+        Person lisa = new Person("1053", "Lisa");
+        Person kiran = new Person("1054", "Kiran");
+        Person elena = new Person("1055", "Elena");
 
 
         Major majorPhysics = new Major("Physics", 30);
@@ -35,7 +35,7 @@ public class Main {
 
         System.out.println("\nProfessors:");
         for (Professor p : Professor.professorList) {
-            System.out.println(Person.findByID(p.personID).name + "  " + p.id);
+            System.out.println(Professor.findByID(p.id) + "  ");
         }
 
 
@@ -44,29 +44,34 @@ public class Main {
         Course engineeringBasics = new Course("Engineering Basics", 3);
 
 
-        PresentedCourse physics1Present = new PresentedCourse(4, 1, 12);
-        PresentedCourse chemistryPresent = new PresentedCourse(5, 1, 12);
-        PresentedCourse engineeringBasicsPresent = new PresentedCourse(6, 2, 12);
+        PresentedCourse physics1Present = new PresentedCourse(1, martinProf.id, 12);
+        PresentedCourse chemistryPresent = new PresentedCourse(2, martinProf.id, 12);
+        PresentedCourse engineeringBasicsPresent = new PresentedCourse(3, simonProf.id, 12);
 
 
-        physics1Present.addStudent(1);
-        physics1Present.addStudent(2);
-        chemistryPresent.addStudent(1);
-        chemistryPresent.addStudent(2);
-        chemistryPresent.addStudent(3);
-        engineeringBasicsPresent.addStudent(3);
+        physics1Present.addStudent(alexStudent.id);
+        physics1Present.addStudent(johnStudent.id);
+
+        chemistryPresent.addStudent(alexStudent.id);
+        chemistryPresent.addStudent(johnStudent.id);
+        chemistryPresent.addStudent(lisaStudent.id);
+
+        engineeringBasicsPresent.addStudent(alexStudent.id);
 
 
-        Transcript alexTranscript = new Transcript(1);
-        Transcript johnTranscript = new Transcript(2);
-        Transcript lisaTranscript = new Transcript(3);
+        Transcript alexTranscript = new Transcript(alexStudent.id);
+        Transcript johnTranscript = new Transcript(johnStudent.id);
+        Transcript lisaTranscript = new Transcript(lisaStudent.id);
 
-        alexTranscript.setGrade(4, 18.0);
-        alexTranscript.setGrade(5, 16.0);
-        johnTranscript.setGrade(4, 14.25);
-        johnTranscript.setGrade(5, 15.50);
-        lisaTranscript.setGrade(5, 19.0);
-        lisaTranscript.setGrade(6, 17.0);
+        alexTranscript.setGrade(1, 18.0);
+        alexTranscript.setGrade(2, 16.0);
+        alexTranscript.setGrade(3, 16.0);
+
+        johnTranscript.setGrade(1, 14.25);
+        johnTranscript.setGrade(2, 15.50);
+
+        lisaTranscript.setGrade(2, 19.0);
+        lisaTranscript.setGrade(3, 17.0);
 
 
         System.out.println("\nTranscripts:");
